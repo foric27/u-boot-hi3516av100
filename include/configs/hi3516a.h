@@ -158,6 +158,8 @@
 #define CONFIG_ETHADDR		00:00:23:34:45:66
 #define CONFIG_BOOTFILE		"uImage"	/* file to load */
 #define CONFIG_BAUDRATE		115200
+#define CONFIG_MDIO_INTF 	"rmii"
+#define CONFIG_PHY_ADDR		3
 /*-----------------------------------------------------------------------
  * for bootm linux
  * used in file  board/hi3516a/board.c
