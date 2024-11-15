@@ -1,0 +1,33 @@
+name: Build
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  TAG_NAME: latest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare
+        run: |
+          sudo apt-get update
+          sudo apt-get install gcc-arm-linux-gnueabi gcc-mipsel-linux-gnu u-boot-tools lzop
+
+      - name: u-boot-hi3516av100
+        run: |
+          bash build.sh
+
+      - name: Upload
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{env.TAG_NAME}}
+          files: |
+            output/u-boot-hi3516av100-universal.bin
+            output/u-boot-hi3516dv100-universal.bin
