@@ -330,7 +330,7 @@
 /*-----------------------------------------------------------------------
  * Snapshot boot support
  * ----------------------------------------------------------------------*/
-/* #define CONFIG_SNAPSHOT_BOOT 1 */
+#define CONFIG_SNAPSHOT_BOOT 1
 
 #ifdef CONFIG_SNAPSHOT_BOOT
 
@@ -368,7 +368,7 @@
 #define CONFIG_AUDIO_ENABLE
 #define CONFIG_OSD_ENABLE
 
-/* #include <configs/hi-common.h> */
+#include <configs/hi-common.h>
 
 #endif	/* __CONFIG_H */
 
