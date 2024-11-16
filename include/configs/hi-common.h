@@ -1,5 +1,5 @@
-#define CONFIG_BOOTARGS "mem=\${osmem} console=ttyAMA0,115200 panic=20 root=/dev/mtdblock3 rootfstype=squashfs init=/init mtdparts=\${mtdparts} \${extras}"
-#define CONFIG_BOOTCOMMAND "setenv setargs setenv bootargs ${bootargs}; run setargs; sf probe 0; sf read ${baseaddr} 0x50000 0x300000; bootm ${baseaddr}; reset"
+#define CONFIG_BOOTARGS "mem=\${osmem} console=ttyAMA0,115200 panic=20 init=/init root=ubi0:rootfs rootfstype=ubifs ubi.mtd=3,2048 mtdparts=\${mtdparts} \${extras}
+#define CONFIG_BOOTCOMMAND "setenv setargs setenv bootargs ${bootargsubi}; run setargs; nand read ${baseaddr} 0x100000 0x300000; bootm ${baseaddr}; reset"
 
 #define CONFIG_EXTRA_ENV_SETTINGS \
     "baseaddr=0x82000000\0" \
@@ -25,7 +25,7 @@
     "setnor8m=run mtdpartsnor8m; setenv bootcmd ${bootcmdnor}; saveenv; reset\0" \
     "setnor16m=run mtdpartsnor16m; setenv bootcmd ${bootcmdnor}; saveenv; reset\0" \
     "restore=n\0" \
-    "osmem=48M\0" \
+    "osmem=60M\0" \
     "soc="CONFIG_PRODUCTNAME
 
 /* env in flash instead of CFG_ENV_IS_NOWHERE */
