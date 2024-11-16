@@ -56,7 +56,7 @@
 /*-----------------------------------------------------------------------
  * SPI Flash Configuration
  -----------------------------------------------------------------------*/
-#define CONFIG_SPI_SUPPORT
+/*#define CONFIG_SPI_SUPPORT*/
 
 #ifdef CONFIG_SPI_SUPPORT
 	#define CONFIG_ENV_IS_IN_SPI_FLASH /* env in spi flash */
@@ -155,6 +155,7 @@
 #define CONFIG_NETMASK		255.255.255.0	/* talk on MY local net */
 #define CONFIG_IPADDR		192.168.1.10	/* static IP I currently own */
 #define CONFIG_SERVERIP		192.168.1.2  /* current IP of tftp server ip */
+#define CONFIG_GATEWAYIP 	192.168.1.1
 #define CONFIG_ETHADDR		00:00:23:34:45:66
 #define CONFIG_BOOTFILE		"uImage"	/* file to load */
 #define CONFIG_BAUDRATE		115200
@@ -195,7 +196,7 @@
 /*-----------------------------------------------------------------------
  * HIETH-GMAC driver
  -----------------------------------------------------------------------*/
-#define CONFIG_NET_HIGMACV300
+/* #define CONFIG_NET_HIGMACV300 */
 #ifdef CONFIG_NET_HIGMACV300
 	#define CONFIG_GMAC_NUMS		1
 	#define HIGMAC0_IOBASE          0x10090000
@@ -237,7 +238,7 @@
 #define CFG_CMDLINE_HISTORYS    8
 #define CONFIG_CMDLINE_EDITING
 #define CFG_DDR_PHYS_OFFSET	MEM_BASE_DDR
-#define CFG_DDR_SIZE		(1024*1024*1024UL) /* 1GB */
+#define CFG_DDR_SIZE		(128*1024*1024UL) /* 128mb */
 
 #define CONFIG_SYS_MEMTEST_START       \
 	(CFG_DDR_PHYS_OFFSET + sizeof(unsigned long))
@@ -281,7 +282,7 @@
 /*-----------------------------------------------------------------------
  * usb storage system update
  * ----------------------------------------------------------------------*/
-/* #define CONFIG_AUTO_UPDATE			1 */
+ #define CONFIG_AUTO_UPDATE			1 
 #ifdef CONFIG_AUTO_UPDATE
 	#define CONFIG_AUTO_SD_UPDATE		1
 	#define CONFIG_AUTO_USB_UPDATE		1
@@ -321,7 +322,7 @@
 /*-----------------------------------------------------------------------
  * DDR Training
  * ----------------------------------------------------------------------*/
-#define CONFIG_DDR_TRAINING_V300
+/*#define CONFIG_DDR_TRAINING_V300*/
 
 #ifdef CONFIG_DDR_TRAINING_V300
 	#undef  CONFIG_DDR_TRAINING_STARTUP
@@ -367,8 +368,8 @@
 #define CONFIG_STACKSIZE_FIQ    (4*1024)        /* FIQ stack */
 #endif
 
-/* #define CONFIG_AUDIO_ENABLE */
-/* #define CONFIG_OSD_ENABLE */
+#define CONFIG_AUDIO_ENABLE
+#define CONFIG_OSD_ENABLE
 
 #include <configs/hi-common.h>
 

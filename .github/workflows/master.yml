@@ -29,5 +29,4 @@ jobs:
         with:
           tag_name: ${{env.TAG_NAME}}
           files: |
-            output/u-boot-hi3516av100-universal.bin
             output/u-boot-hi3516dv100-universal.bin
