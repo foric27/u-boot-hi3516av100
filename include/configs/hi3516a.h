@@ -151,16 +151,13 @@
  *-----------------------------------------------------------------------*/
 #define CONFIG_BOOTCOMMAND	"bootm 0x82000000"
 #define CONFIG_BOOTDELAY	1
-#define CONFIG_BOOTARGS		"mem=96M console=ttyAMA0,115200"
+#define CONFIG_BOOTARGS		"mem=60M console=ttyAMA0,115200"
 #define CONFIG_NETMASK		255.255.255.0	/* talk on MY local net */
 #define CONFIG_IPADDR		192.168.1.10	/* static IP I currently own */
 #define CONFIG_SERVERIP		192.168.1.2  /* current IP of tftp server ip */
-#define CONFIG_GATEWAYIP 	192.168.1.1
 #define CONFIG_ETHADDR		00:00:23:34:45:66
 #define CONFIG_BOOTFILE		"uImage"	/* file to load */
 #define CONFIG_BAUDRATE		115200
-#define CONFIG_MDIO_INTF 	"rmii"
-#define CONFIG_PHY_ADDR		3
 /*-----------------------------------------------------------------------
  * for bootm linux
  * used in file  board/hi3516a/board.c
@@ -201,9 +198,9 @@
 	#define CONFIG_GMAC_NUMS		1
 	#define HIGMAC0_IOBASE          0x10090000
 /*	#define HIGMAC1_IOBASE          0x10091000	  */
-	#define CONFIG_HIGMAC_PHY1_ADDR		1
+	#define CONFIG_HIGMAC_PHY1_ADDR		3
 /*	#define CONFIG_HIGMAC_PHY2_ADDR		2	  */
-	#define CONFIG_HIGMAC_PHY1_INTERFACE_MODE	2
+	#define CONFIG_HIGMAC_PHY1_INTERFACE_MODE	1 /* rgmii 2, rmii 1, mii 0 */
 /*	#define CONFIG_HIGMAC_PHY2_INTERFACE_MODE	2 */
 
 	/* need GPIO to reset external phy */
@@ -238,7 +235,7 @@
 #define CFG_CMDLINE_HISTORYS    8
 #define CONFIG_CMDLINE_EDITING
 #define CFG_DDR_PHYS_OFFSET	MEM_BASE_DDR
-#define CFG_DDR_SIZE		(128*1024*1024UL) /* 128mb */
+#define CFG_DDR_SIZE		(1024*1024*1024UL) /* 1GB */
 
 #define CONFIG_SYS_MEMTEST_START       \
 	(CFG_DDR_PHYS_OFFSET + sizeof(unsigned long))
@@ -282,7 +279,7 @@
 /*-----------------------------------------------------------------------
  * usb storage system update
  * ----------------------------------------------------------------------*/
- #define CONFIG_AUTO_UPDATE			1 
+ /* #define CONFIG_AUTO_UPDATE			1 */
 #ifdef CONFIG_AUTO_UPDATE
 	#define CONFIG_AUTO_SD_UPDATE		1
 	#define CONFIG_AUTO_USB_UPDATE		1
