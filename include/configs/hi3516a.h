@@ -196,7 +196,7 @@
 /*-----------------------------------------------------------------------
  * HIETH-GMAC driver
  -----------------------------------------------------------------------*/
-/* #define CONFIG_NET_HIGMACV300 */
+#define CONFIG_NET_HIGMACV300
 #ifdef CONFIG_NET_HIGMACV300
 	#define CONFIG_GMAC_NUMS		1
 	#define HIGMAC0_IOBASE          0x10090000
