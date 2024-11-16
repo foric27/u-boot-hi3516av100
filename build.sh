@@ -5,7 +5,7 @@ mkdir -p output
 
 soc=hi3516d
 
-sed -i "s|hi3516.v100|${soc}v100|" include/configs/hi3516a.h
+#sed -i "s|hi3516.v100|${soc}v100|" include/configs/hi3516a.h
 make clean
 make hi3516a_config
 

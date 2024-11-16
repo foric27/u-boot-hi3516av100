@@ -322,7 +322,7 @@
 /*-----------------------------------------------------------------------
  * DDR Training
  * ----------------------------------------------------------------------*/
-/*#define CONFIG_DDR_TRAINING_V300*/
+#define CONFIG_DDR_TRAINING_V300
 
 #ifdef CONFIG_DDR_TRAINING_V300
 	#undef  CONFIG_DDR_TRAINING_STARTUP
